@@ -53,85 +53,6 @@ analytics_portal/
 └── README.md
 ```
 
-## 🚀 Características Implementadas
-
-### 1. **Datos Simulados Profesionales**
-- Módulo `data.py` con función `get_analytics_data()`
-- 12 registros de ejemplo con fechas dinámicas
-- 3 empresas monitoreadas (Empresa A, B, C)
-- 3 tipos de métricas (Visitantes, Conversiones, Click-Through Rate)
-
-### 2. **Paginación Server-Side (Django)**
-```python
-from django.core.paginator import Paginator
-
-paginator = Paginator(analytics_data, 5)  # 5 registros por página
-page_obj = paginator.get_page(page_number)
-```
-- 5 registros por página
-- Navegación con botones Anterior/Siguiente
-- Gestión completa en backend (Python)
-- URLs con parámetro `?page=`
-- Control inteligente de botones (deshabilitados en primera/última página)
-
-### 3. **Diseño Profesional**
-- **Gradiente visual**: Fondo morado-azul (#667eea → #764ba2)
-- **Layout Grid CSS**: Estructura de 12 columnas x 17 filas
-- **Tipografía moderna**: Fuentes Roboto y Poppins
-- **Tabla estilizada**: Bordes redondeados, hover effects
-- **Animaciones sutiles**: Botones interactivos con transiciones
-
-### 4. **Componentes Visuales**
-
-#### Header
-- Título "Analytics Portal" en caja redondeada
-- Línea divisoria vertical
-- Diseño simétrico y elegante
-
-#### Presentation (Izquierda)
-- Título con efecto de texto duplicado (pseudo-elemento ::before)
-- Descripción del portal
-- Icono GitHub animado (scale + rotate en hover)
-
-#### Table (Derecha)
-- Tabla con 4 columnas
-- Encabezado morado con bordes redondeados
-- Filas alternas con colores suaves
-- Hover effects en filas
-- Scroll automático para datos
-- Paginación con botones cian/turquesa
-
-#### Footer
-- Información de copyright
-- Posicionada en fila 16 del grid
-
-### 5. **Variables CSS Globales**
-```css
-:root {
-  /* Grid */
-  --grid-columns: 12;
-  --grid-rows: 17;
-  
-  /* Dimensiones */
-  --w-cell: 8.33vw;
-  --h-cell: 3.3088vw;
-  
-  /* Colores */
-  --R1-color: #eb162c;
-  --B2-color: #1e8c93;
-  --W1-color: #eee8f2;
-  
-  /* Tipografía */
-  --main-font: "Poppins", Arial;
-  --poppins-font: "Poppins", sans-serif;
-  
-  /* Pesos */
-  --font-normal: 400;
-  --font-semi-bold: 600;
-  --font-bold: 700;
-}
-```
-
 ## 🛠️ Tecnologías Utilizadas
 
 - **Django 6.0.1**: Framework web Python
@@ -151,6 +72,8 @@ pip (gestor de paquetes)
 
 ### 2. Clonar/Descargar el Proyecto
 ```bash
+git clone https://github.comDeiviHerreraDiaz09Analytics_portal.git
+
 cd analytics_portal
 ```
 
@@ -223,59 +146,35 @@ http://localhost:8000/analytics/    # Página principal
 http://localhost:8000/admin/        # Panel de administración
 ```
 
+## Decisiones Técnicas Tomadas
 
-## 📊 Flujo de Datos
+- Se utilizó Django con vistas y templates tradicionales, ya que el objetivo de la prueba es demostrar comprensión de la estructura base del framework sin añadir complejidad innecesaria.
 
-```
-request (GET /analytics/?page=2)
-    ↓
-views.py (dashboard function)
-    ↓ get_analytics_data() → 12 registros
-    ↓ Paginator(data, 5) → 3 páginas
-    ↓ get_page(2) → registros 5-10
-    ↓
-context = {
-  'analytics_data': [...],    # 5 registros de página 2
-  'page_obj': <Page 2 of 3>,  # Info paginación
-  'paginator': <Paginator>
-}
-    ↓
-template render (index.html)
-    ↓
-HTML + CSS renderizado
-    ↓
-response (Página 2 con botones)
-```
+- Los datos se definieron de forma simulada en memoria, cumpliendo el requerimiento explícito de no usar base de datos ni persistencia.
 
-## 🧪 Testing
+- Se implementó paginación desde la vista, para demostrar manejo de grandes volúmenes de datos y buenas prácticas en la presentación.
 
-Ejecutar tests unitarios:
-```bash
-python manage.py test dashboard
-```
+- Se separaron estilos globales y específicos mediante CSS modular, mejorando mantenibilidad y claridad.
 
-Tests incluidos:
-- ✅ Accesibilidad de vistas
-- ✅ Templates correctos
-- ✅ Contexto esperado
-- ✅ Estructura de datos
-- ✅ Contenido HTML
+- La estructura del proyecto sigue las convenciones estándar de Django, facilitando escalabilidad y comprensión del código.
 
-Ejecutar con verbosidad:
-```bash
-python manage.py test dashboard --verbosity=2
-```
+- Se incluyó Docker y Docker Compose como opción adicional para facilitar la ejecución del proyecto en distintos entornos.
+
+
+## Principales Aprendizajes
+
+- Refuerzo del uso correcto de vistas, templates y contexto en Django.
+
+- Importancia de mantener una separación clara de responsabilidades entre lógica de negocio y presentación.
+
+- Uso de paginación y datos simulados como alternativa válida para pruebas técnicas sin persistencia.
+
+- Mejora en la organización de proyectos Django con enfoque en legibilidad y mantenibilidad.
+
+- Valor de documentar correctamente un proyecto para facilitar su ejecución y evaluación técnica.
 
 ## 📄 Licencia
 
 MIT License - 2026
 
 ---
-
-**Nota:** Esta es una prueba técnica que demuestra habilidades en:
-- ✅ Django (vistas, templates, paginación)
-- ✅ HTML5 (semántica, estructura)
-- ✅ CSS3 (grid, flexbox, animaciones, variables)
-- ✅ Python (organización de código, buenas prácticas)
-- ✅ Desarrollo Web Profesional (escalabilidad, mantenibilidad)
-
