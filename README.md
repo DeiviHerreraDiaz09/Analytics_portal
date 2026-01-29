@@ -141,11 +141,11 @@ page_obj = paginator.get_page(page_number)
 - **Font Awesome 6.5.1**: Iconos (GitHub)
 - **Google Fonts**: Tipografía (Roboto, Poppins)
 
-## 💻 Instalación y Uso
+## 💻 Instalación y Uso (Local)
 
 ### 1. Requisitos Previos
 ```bash
-Python 3.8+
+Python 3.12+
 pip (gestor de paquetes)
 ```
 
@@ -170,26 +170,59 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 5. Configurar Django (Opcional)
-```bash
-# Aplicar migraciones
-python manage.py migrate
-
-# Crear superusuario (para admin)
-python manage.py createsuperuser
-```
-
-### 6. Ejecutar Servidor
+### 5. Ejecutar Servidor
 ```bash
 python manage.py runserver
 ```
 
 ### 7. Acceder a la Aplicación
 ```
-http://localhost:8000/        # Redirige a /analytics/
+http://localhost:8000/
 http://localhost:8000/analytics/    # Página principal
 http://localhost:8000/admin/        # Panel de administración
 ```
+
+## 🐳 Ejecutar el proyecto con Docker (forma sencilla)
+
+Con Docker puedes levantar el proyecto sin instalar Python ni dependencias en tu máquina.
+
+---
+
+### 1. Requisitos
+Tener instalados:
+- Docker
+- Docker Compose
+
+Verifica:
+```bash
+docker --version
+docker compose version
+```
+
+### 2. Levantar la aplicación
+
+Desde la raíz del proyecto ejecuta:
+
+```bash
+docker compose up --build
+```
+
+Docker se encargará de:
+
+- Construir la imagen
+- Instalar dependencias
+- Iniciar Django
+
+### 3. Abrir en el navegador
+
+Accede a:
+
+```
+http://localhost:8000/
+http://localhost:8000/analytics/    # Página principal
+http://localhost:8000/admin/        # Panel de administración
+```
+
 
 ## 📊 Flujo de Datos
 
