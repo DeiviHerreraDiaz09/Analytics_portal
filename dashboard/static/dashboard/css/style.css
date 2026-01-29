@@ -1,0 +1,251 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: var(--main-font);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Header */
+
+header {
+  grid-row: 2/3;
+  grid-column: 6/8;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+}
+
+.info-header {
+  border-radius: calc(var(--w-cell) / 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--W1-color);
+  border: calc(var(--w-cell) / 60) solid var(--W1-color);
+  width: 100%;
+  height: 100%;
+}
+
+.info-header h1 {
+  font-size: calc(var(--w-cell) / 6);
+  font-family: var(--secondary-font);
+  user-select: none;
+}
+
+/* Divider Line */
+.divider-line {
+  grid-row: 4/15;
+  grid-column: 6/8;
+  width: calc(var(--h-cell) / 15);
+  background-color: var(--W1-color);
+  margin: 0 auto;
+  opacity: 0.5;
+}
+
+/* Section 1 - Presentation */
+
+.presentation {
+  grid-column: 2 / 6;
+  grid-row: 4 / 15;
+  display: grid;
+  grid-template-columns: repeat(calc((var(--grid-columns) / 2) - 2), 1fr);
+  grid-template-rows: repeat(calc(var(--grid-rows) - 6), 1fr);
+  user-select: none;
+}
+
+.presentation > h2 {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  justify-self: center;
+  align-self: center;
+  color: var(--W1-color);
+  grid-row: 3/6;
+  grid-column: 2/4;
+  font-size: calc(var(--h-cell) / 0.8);
+  text-align: center;
+  position: relative;
+}
+
+.presentation > h2::before {
+  content: "Analytics Portal";
+  position: absolute;
+  left: calc(var(--w-cell) * 0.1);
+  top: calc(var(--h-cell) * 0.19);
+  color: var(--W1-color);
+  opacity: 0.1;
+  z-index: -1;
+  font-size: calc(var(--h-cell) / 0.8);
+  font-family: inherit;
+}
+
+.presentation > p {
+  justify-self: center;
+  align-self: center;
+  color: var(--W1-color);
+  grid-row: 7/9;
+  grid-column: 1/5;
+  font-size: calc(var(--h-cell) / 3);
+  text-align: center;
+  margin-left: calc(var(--w-cell) / 2);
+  margin-right: calc(var(--w-cell) / 2);
+}
+
+.presentation > .icons {
+  grid-column: 2/4;
+  grid-row: 9/11;
+  justify-self: center;
+  align-self: center;
+  font-size: calc(var(--h-cell) / 2);
+}
+
+.github-icon {
+  font-size: calc(var(--h-cell) / 1.5);
+  color: var(--W1-color);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.github-icon:hover {
+  color: #000000;
+  transform: scale(1.2) rotate(10deg);
+}
+
+/* Section 2 - Table*/
+
+.table {
+  grid-column: 8 / 12;
+  grid-row: 4 / 15;
+  display: grid;
+  grid-template-columns: repeat(calc((var(--grid-columns) / 2) - 2), 1fr);
+  grid-template-rows: repeat(calc(var(--grid-rows) - 6), 1fr);
+  user-select: none;
+  padding: calc(var(--w-cell) / 4);
+}
+
+.table-wrapper {
+  grid-column: 1/5;
+  grid-row: 1/11;
+  overflow-y: auto;
+  border-radius: calc(var(--w-cell) / 4);
+  background: rgba(255, 255, 255, 0.95);
+  padding: calc(var(--w-cell) / 8);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: calc(var(--h-cell) / 4);
+  overflow: hidden;
+  border-radius: calc(var(--w-cell) / 6);
+}
+
+thead {
+  background-color: #667eea;
+}
+
+th {
+  padding: calc(var(--h-cell) / 3);
+  text-align: left;
+  font-weight: var(--font-bold);
+  color: white;
+  border: calc(var(--h-cell) / 60) solid var(--W1-color);
+}
+
+th:first-child {
+  border-top-left-radius: calc(var(--w-cell) / 6);
+}
+
+th:last-child {
+  border-top-right-radius: calc(var(--w-cell) / 6);
+}
+
+td {
+  padding: calc(var(--h-cell) / 3.5);
+  border: calc(var(--h-cell) / 60) solid #e9ecef;
+  color: #555;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f0f0f0;
+  transition: background-color 0.2s ease;
+}
+
+/* Pagination Controls */
+
+.pagination-controls {
+  grid-column: 1/5;
+  grid-row: 12/13;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(var(--w-cell) / 2);
+}
+
+.pagination-btn {
+  padding: calc(var(--w-cell) / 6) calc(var(--w-cell) / 3);
+  background-color: var(--B2-color);
+  color: white;
+  border: none;
+  border-radius: calc(var(--w-cell) / 8);
+  cursor: pointer;
+  font-size: calc(var(--h-cell) / 4.5);
+  font-weight: var(--font-semi-bold);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(30, 140, 147, 0.4);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: #0f5a63;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 140, 147, 0.5);
+}
+
+.pagination-btn:disabled {
+  background: #ddd;
+  cursor: not-allowed;
+  opacity: 0.5;
+  box-shadow: none;
+}
+
+/* Footer - More info */
+
+footer {
+  width: 100%;
+  height: 100%;
+  grid-row: 16 / 17;
+  grid-column: 5 / 9;
+}
+
+.info-footer {
+  font-size: calc(var(--w-cell) / 10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--W1-color);
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}

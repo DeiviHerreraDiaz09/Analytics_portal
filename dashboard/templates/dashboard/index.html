@@ -1,0 +1,83 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/variables.css' %}" />
+    <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}" />
+    <link rel="shortcut icon" href="{% static 'dashboard/img/favicon.ico' %}" type="image/x-icon"/>
+  </head>
+  <body>
+
+    <header>
+      <div class="info-header">
+        <h1>Prueba Técnica</h1>
+      </div>
+    </header>
+
+    <div class="divider-line"></div>
+
+    <section class="presentation">
+      <h2>Analytics Portal</h2>
+      <p>
+        Bienvenido al portal analítico. Aquí encontrarás métricas clave para
+        monitorear el rendimiento de tu sitio web.
+      </p>
+
+      <div class="icons">
+        <a href="https://github.com/DeiviHerreraDiaz09/Analytics_portal" target="_blank">
+          <i class="fa-brands fa-github github-icon"></i>
+        </a>
+      </div>
+    </section>
+
+    <section class="table">
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>Métrica</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for record in analytics_data %}
+            <tr>
+              <td>{{ record.fecha }}</td>
+              <td>{{ record.cliente }}</td>
+              <td>{{ record.metrica }}</td>
+              <td>{{ record.valor }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination-controls">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="pagination-btn">←</a>
+        {% else %}
+        <button class="pagination-btn" disabled>←</button>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="pagination-btn">→</a>
+        {% else %}
+        <button class="pagination-btn" disabled>→</button>
+        {% endif %}
+      </div>
+    </section>
+
+    <footer>
+      <div class="info-footer">
+        <p>&copy; 2026 Portal Analítico. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

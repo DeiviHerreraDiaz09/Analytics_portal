@@ -1,0 +1,108 @@
+/* ========================================
+   VARIABLES GLOBALES DEL PROYECTO
+   ======================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  /* Grid Layout */
+  --grid-columns: 12;
+  --grid-rows: 17;
+
+  /* Utils - Dimensiones */
+  --w-cell: 8.33vw;
+  --h-cell: 3.3088vw;
+
+  /* Colores Principales */
+  --body-color: #eee8f2;
+  --R1-color: #eb162c;
+  --R2-color: #ed2f4c;
+  --R3-color: #a81a2b;
+  --G1-color: #6b6b6b;
+  --B1-color: #030d4f;
+  --B2-color: #1e8c93;
+  --W1-color: #eee8f2;
+  --title-color: #383838;
+  --colorRedWine: rgba(235, 22, 44, 0.25);
+  --colorRedWine2: #991023;
+
+  /* Tipografía */
+  --main-font: "Roboto", Arial, sans-serif;
+  --secondary-font: "Roboto", "Outfit", sans-serif;
+  --poppins-font: "Poppins", sans-serif;
+
+  /* Peso de Fuente */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /* Tamaño de Fuente */
+  --font-size-text: clamp(0.6rem, 0.75vw, 2rem);
+  --font-size-title: clamp(1.5rem, 2vw, 3rem);
+  --font-size-subtitle: clamp(1rem, 1.5vw, 2.5rem);
+
+  /* Z-index */
+  --z-base: 1;
+  --z-low: 10;
+  --z-medium: 100;
+  --z-high: 1000;
+}
+
+/* Estilos Globales */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--main-font);
+}
+
+body {
+  font-size: 0.9rem;
+  overscroll-behavior: none;
+  background-color: var(--body-color);
+}
+
+/* Scrollbar personalizado - Firefox */
+@-moz-document url-prefix() {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--R1-color) var(--W1-color);
+  }
+}
+
+/* Scrollbar personalizado - Chrome, Safari, Edge */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--W1-color);
+  padding: 2px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--R1-color);
+  border-radius: 10px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  margin: 2px;
+}
+
+/* Clases de utilidad */
+.notification_success {
+  grid-column: 4 / 10;
+  grid-row: 1 / 3;
+}
+
+/* Para navegadores basados en Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+display: none;
+}
+
+/* Para Firefox */
+container {
+scrollbar-width: none; /* Oculta la barra de scroll */
+overflow-y: scroll; /* Mantiene la funcionalidad de desplazamiento */
+}
