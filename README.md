@@ -2,6 +2,8 @@
 
 Una aplicación web profesional desarrollada con **Django 6.0.1** que demuestra la implementación de buenas prácticas en el framework.
 
+<img width="1880" height="920" alt="image" src="https://github.com/user-attachments/assets/d7bcc166-19ed-4b22-8a71-f3d3886c1bc0" />
+
 ## 📋 Objetivo
 
 Construir una aplicación Django que demuestre comprensión profunda de la estructura del framework, incluyendo vistas, templates, paginación y estilos profesionales.
